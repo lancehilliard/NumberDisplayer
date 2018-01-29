@@ -2,12 +2,12 @@
 
 namespace NumberDisplayer.WindowsApplication {
     public interface ITextDrawer {
-        Bitmap Draw(string text, Font font, Color textColor, Color backColor);
+        Bitmap Create(string text, Font font, Color textColor, Color backColor);
     }
 
-    public class TextDrawer : ITextDrawer {
+    public class TextBitmapCreator : ITextDrawer {
         // https://stackoverflow.com/a/2070493/116895
-        public Bitmap Draw(string text, Font font, Color textColor, Color backColor) {
+        public Bitmap Create(string text, Font font, Color textColor, Color backColor) {
             var result = new Bitmap(1, 1);
             var drawing = Graphics.FromImage(result);
             var textSize = drawing.MeasureString(text, font);
