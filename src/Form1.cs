@@ -50,7 +50,7 @@ namespace NumberDisplayer.WindowsApplication {
         // https://stackoverflow.com/a/12026812/116895
         private void UpdateNumberDisplay() {
             try {
-                var displayText = _numberLastValue == default(int) || (DateTime.Now - _numberLastUpdated).TotalSeconds >= 300 ? DefaultText : _numberLastValue < 100 ? $"{_numberLastValue}" : ":)";
+                var displayText = _numberLastValue == default(int) || (DateTime.Now - _numberLastUpdated).TotalSeconds >= 300 ? DefaultText : _numberLastValue <= 99 ? $"{_numberLastValue}" : ":)";
                 if (!displayText.Equals(_displayTextLastValue)) {
                     var bitmap = _textBitmapCreator.Create(displayText, DefaultFont, ForeColor, BackColor);
                     var bitmapHandle = bitmap.GetHicon();
